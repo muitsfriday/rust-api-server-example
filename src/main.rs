@@ -1,6 +1,6 @@
 use std::env;
 
-use rust_api_server_example::{self, init_mongo};
+use rust_api_server_example::{self, init_mongo, init_server};
 
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
@@ -12,5 +12,7 @@ async fn main() -> std::io::Result<()> {
         .await
         .expect("unable to connect to mongodb");
 
-    Ok(())
+    let port = env::var("APP_PORT").expect("APP_PORT is not found in env");
+    
+    init_server(&port).await
 }
