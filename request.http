@@ -1,3 +1,13 @@
 GET http://localhost:8000/test
 
 ###
+
+POST http://localhost:8000/post
+Content-Type: application/json
+
+{
+    "title": "บทความแรก",
+    "description": "แนะนำมาใช้ Rust กันเถอะะะะ",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla, sapien eget tempor vehicula, erat augue efficitur ex, vitae aliquet augue nulla et nisl. Etiam elit felis, ullamcorper et sagittis at, pellentesque eu ligula. Fusce in tellus massa. Proin laoreet lacus ex, vitae luctus elit accumsan non",
+    "tags": []
+}

@@ -1173,6 +1173,8 @@ version = "0.1.0"
 dependencies = [
  "actix-web",
  "mongodb",
+ "serde",
+ "serde_json",
 ]
 
 [[package]]
