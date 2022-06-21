@@ -11,3 +11,9 @@ Content-Type: application/json
     "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut fringilla, sapien eget tempor vehicula, erat augue efficitur ex, vitae aliquet augue nulla et nisl. Etiam elit felis, ullamcorper et sagittis at, pellentesque eu ligula. Fusce in tellus massa. Proin laoreet lacus ex, vitae luctus elit accumsan non",
     "tags": []
 }
+
+###
+
+GET http://localhost:8000/post/0123
+Content-Type: application/json
+

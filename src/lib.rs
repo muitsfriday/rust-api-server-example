@@ -4,6 +4,12 @@ use mongodb::{options::ClientOptions, Client, Database};
 mod handler;
 mod service;
 
+use crate::service::post::Service as PostService;
+
+pub struct AppData {
+    pub post_service: PostService,
+}
+
 pub async fn init_mongo(url: &str, dbname: &str) -> mongodb::error::Result<Database> {
     println!("connecting to the mongodb");
 
@@ -24,9 +30,13 @@ pub async fn init_mongo(url: &str, dbname: &str) -> mongodb::error::Result<Datab
 
 pub async fn init_server(port: &str) -> std::io::Result<()> {
     let app_port = port.parse::<u16>().unwrap();
+    let app_data = web::Data::new(AppData {
+        post_service: PostService::new(),
+    });
 
-    HttpServer::new(|| {
+    HttpServer::new(move || {
         App::new()
+            .app_data(app_data.clone())
             .route("/test", web::get().to(handler::test_handler))
             .route("/post", web::post().to(handler::create_post::handle))
             .route("/post/{id}", web::get().to(handler::get_post::handle))

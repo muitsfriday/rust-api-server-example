@@ -345,6 +345,7 @@ dependencies = [
  "libc",
  "num-integer",
  "num-traits",
+ "serde",
  "time 0.1.43",
  "winapi",
 ]
@@ -1172,6 +1173,7 @@ name = "rust-api-server-example"
 version = "0.1.0"
 dependencies = [
  "actix-web",
+ "chrono",
  "mongodb",
  "serde",
  "serde_json",
